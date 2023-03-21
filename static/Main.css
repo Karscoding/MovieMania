@@ -1,0 +1,68 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    z-index:0;
+    background-color: black;
+}
+
+h1{
+    padding-top: 160px;
+    margin-bottom: 0px;
+    font-size: 80px;
+    color:white;
+}
+
+p{
+    margin-top: 0px;
+    font-size: 15px;
+    color:white;
+    font-weight: 500;
+}
+
+.background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index:-1;
+    filter:brightness(0.3);
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.LijstKnop{
+    font-size:20px;
+    color:white;
+    position: absolute;
+    left:30%;
+    top:55%;
+    background-color:rgba(0, 0, 0, 0.367);
+    padding:15px;
+}
+
+.InlogKnop{
+    font-size:20px;
+    color:white;
+    position: absolute;
+    left:46%;
+    top:55%;
+    background-color:rgba(0, 0, 0, 0.367);
+    padding:15px;
+}
+
+.InfoKnop{
+    font-size:20px;
+    color:white;
+    position: absolute;
+    left:62%;
+    top:55%;
+    background-color:rgba(0, 0, 0, 0.367);
+    padding:15px;
+}
+
+.Credits{
+    color:white;
+    text-align: left;
+    position: absolute;
+    top:91%;
+}
