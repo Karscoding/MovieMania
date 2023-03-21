@@ -1,28 +1,19 @@
 body{
     background-color:black;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-repeat:repeat-y;
+    background-image: url('disney-movies.jpg');
+    background-size: 100%;
 }
 
-h1{
-    color:white;
+.container{
+    text-align: center;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top:10%;
+    width:50%;
     position:absolute;
-    left:5%;
-}
-
-p{
-    color:white;
-    position:absolute;
-    left:5%;
-    top:10%;
-}
-
-.background {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index:-1;
-    filter:brightness(0.3);
-    max-width: 100%;
-    max-height: 100%;
+    left:24%;
+    height:160%;
 }
