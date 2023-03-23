@@ -20,6 +20,11 @@ def Login():
 def Info():
     return render_template("Informatie.html")
 
+@app.route("/Registratie")
+def registratie():
+    return render_template("Registratie.html")
+
+
 
 
 if __name__=='__main__':
