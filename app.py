@@ -15,7 +15,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'MijnSecretKey'
 
 @app.route("/" ,methods=['GET', 'POST'])
-def root():
+def Main():
     return render_template('main.html')
 
 @app.route("/Lijst")
