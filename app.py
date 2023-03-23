@@ -10,5 +10,16 @@ def root():
 def Lijst():
     return render_template("Lijst.html")
 
+@app.route("/Login")
+def Login():
+    return render_template("Login.html")
+
+
+@app.route("/Info")
+def Info():
+    return render_template("Info.html")
+
+
+
 if __name__=='__main__':
     app.run(debug=True, port=3333)
