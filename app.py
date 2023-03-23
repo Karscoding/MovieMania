@@ -14,10 +14,9 @@ def Lijst():
 def Login():
     return render_template("Login.html")
 
-
 @app.route("/Info")
 def Info():
-    return render_template("Info.html")
+    return render_template("Informatie.html")
 
 
 
