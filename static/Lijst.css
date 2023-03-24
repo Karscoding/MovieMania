@@ -12,7 +12,7 @@ body{
     border-radius: 25px;
     padding: 20px;
     margin-top:10%;
-    width:70%;
+    width: 70%;
     position:absolute;
     left:14%;
     height:160%;
@@ -20,16 +20,18 @@ body{
 
 .FilmLijst{
     list-style-type:none;
-    width:90%;
+    width: 90%;
+    list-style-position: outside;
 }
 
 li{
-    height:18%;
     text-align: left;
     padding:2%;
     float:right;
+    position: relative;
     border-style:dashed;
     border-color: rgba(0, 0, 0, 0.11);
+    width: 90%;
 }
 
 .ExtraInfo{
@@ -38,10 +40,8 @@ li{
 }
 
 .LijstPicture{
-    width:20%;
-    left:5%;
     float:left;
-    margin-right:5%;
+    margin-right:2%;
 }
 
 .Rating{
