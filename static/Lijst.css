@@ -17,3 +17,17 @@ body{
     left:14%;
     height:160%;
 }
+
+.FilmLijst{
+    list-style-type: none;
+    background-color: grey;
+    height:20%;
+    text-align: left;
+    padding-left: 30%;
+}
+
+.LijstPicture{
+    width:20%;
+    left:5%;
+    position: absolute;
+}
