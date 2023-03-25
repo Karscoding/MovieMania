@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='Login.css') }}">
 </head>
 <body>
-  
-
     <div class="container">
         <h1>Welkom Terug</h1>
         <form method="POST">
@@ -19,14 +17,9 @@
           <label for="password"><b>Password</b></label>
           <input type="password" placeholder="Voer je wachtwoord in" name="password" required>
           <button type="submit">Login</button>
-          <h2>nog geen account?</h2><a href="{{ url_for('registratie')}}"> klik hier om een account te maken</a>
+          <h2>Nog geen account?</h2><a href="{{ url_for('registratie')}}">Account Aanmaken</a>
         </form>
     </div>
-      
     <p class="Credits">Kars Hekman <br>Lucas Bruins <br>© 2023</p>
-
-    
-   
-    
 </body>
 </html>

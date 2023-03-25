@@ -1,27 +1,22 @@
+#Imports
 from flask import Flask, render_template, session, redirect, url_for, session
-from flask_wtf import FlaskForm
-from wtforms import (StringField, BooleanField, DateTimeField,
-                                  RadioField, SelectField,
-                                  TextAreaField, SubmitField)
-from wtforms.validators import DataRequired
+from forms import *
 
-class InlogForm(FlaskForm):
-    email = StringField('Voer je e-mail in', validators=[DataRequired()])
-    password = StringField('Voer je wachtwoord in', validators=[DataRequired()])
-
-    submit = SubmitField('Verzend')
-
+#App Configuration
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'MijnSecretKey'
 
+#Default Path
 @app.route("/" ,methods=['GET', 'POST'])
 def Main():
     return render_template('main.html')
 
+#Lijst Path
 @app.route("/Lijst")
 def Lijst():
     return render_template("Lijst.html")
 
+#Login Path
 @app.route("/Login" ,methods=['GET', 'POST'])
 def Login():
     form = InlogForm()
@@ -33,16 +28,17 @@ def Login():
 
     return render_template("Login.html", form=form)
 
+#Registratie Path
+@app.route("/Registratie")
+def registratie():
+    form = RegistratieForm()
+    return render_template("Registratie.html", form=form)
+
+#Info Path
 @app.route("/Info")
 def Info():
     return render_template("Informatie.html")
 
-@app.route("/Registratie")
-def registratie():
-    return render_template("Registratie.html")
-
-
-
-
+#Run
 if __name__=='__main__':
-    app.run(debug=True, port=3333)
+    app.run(debug=True)

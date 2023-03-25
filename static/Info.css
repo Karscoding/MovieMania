@@ -17,3 +17,7 @@ body{
     left:24%;
     height:160%;
 }
+
+ul{
+    list-style-type: none;
+}

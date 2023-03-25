@@ -38,6 +38,7 @@ button {
   border-radius: 4px;
   cursor: pointer;
 }
+
 button:hover {
   background-color: #45a049;
 }
@@ -47,4 +48,8 @@ button:hover {
   text-align: left;
   position: absolute;
   top:87%;
+}
+
+h2{
+  margin-bottom: 5px;
 }
