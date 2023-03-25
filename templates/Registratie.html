@@ -12,14 +12,19 @@
     <div class="container">
         <h1>Welkom, maak hier uw account</h1>
         <form>
-          <label for="Email"><b>Email</b></label>
-          <input type="text" placeholder="Voer je email in" name="email" required>
-          <label for="Email2"><b>Email</b></label>
-          <input type="text" placeholder="herhaal je email" name="Email2" required>
-          <label for="password"><b>Password</b></label>
-          <input type="password" placeholder="Voer je wachtwoord in" name="password" required>
-          <button type="submit">Login</button>
-          <h2>al een account?</h2><a href="{{ url_for('Login')}}"> klik hier om in te loggen</a>
+            <label for="name"><b>Naam</b></label>
+            <input type="text" placeholder="Voer uw gebruikersnaam in" id="Name" name="name" required>
+
+            <label for="Email"><b>Email</b></label>
+            <input type="text" placeholder="Voer uw email in" name="email" required>
+
+            <label for="password"><b>Wachtwoord</b></label>
+            <input type="password" placeholder="Voer uw wachtwoord in" name="password" required>
+
+            <label for="confirm-password"><b> Herhaal uw wachtwoord</b> </label>
+            <input type="password" placeholder="Bevestig uw wachtwoord" name="confirm-password" required>
+            <button type="submit">Registreren</button>
+        <h2>Al een account?</h2> <a href="{{ url_for('Login')}}"> <button type="button" id="redirect" >Klik hier om in te loggen </button></a>
         </form>
     </div>
     
