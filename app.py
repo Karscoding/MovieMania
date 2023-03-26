@@ -21,7 +21,7 @@ class Accounts(db.Model):
     
     __tablename__ = 'Accounts'
     id = db.Column(db.Integer,primary_key = True)
-    gebruikersnaam = db.Column(db.Text, unique=True)
+    gebruikersnaam = db.Column(db.Text)
     email = db.Column(db.Text, unique=True)
     password = db.Column(db.Text)
     
@@ -49,8 +49,13 @@ def Lijst():
 def Login():
     form = InlogForm()
     if form.validate_on_submit():
-        session['email'] = form.email.data
-        session['password'] = form.password.data
+        email = form.email.data
+        password = form.password.data
+        
+        user = Accounts.query.filter_by(email=email, password=password).first()
+        
+        if user:
+            return redirect(url_for('Lijst'))
 
         return redirect(url_for("Info"))
 
