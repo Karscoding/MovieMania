@@ -21,8 +21,8 @@ class Accounts(db.Model):
     
     __tablename__ = 'Accounts'
     id = db.Column(db.Integer,primary_key = True)
-    gebruikersnaam = db.Column(db.Text)
-    email = db.Column(db.Text)
+    gebruikersnaam = db.Column(db.Text, unique=True)
+    email = db.Column(db.Text, unique=True)
     password = db.Column(db.Text)
     
     def __init__(self, name, email, password):
@@ -64,6 +64,11 @@ def registratie():
         name = form.name.data
         email = form.email.data
         password = form.password.data
+        
+        user = Accounts.query.filter_by(email=email).first()
+        
+        if user:
+            return redirect(url_for('registratie'))
         
         NewAccount = Accounts(name,email,password)
         db.session.add(NewAccount)
