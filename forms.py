@@ -8,11 +8,11 @@ class InlogForm(FlaskForm):
     email = StringField('Voer je e-mail in', validators=[DataRequired()])
     password = StringField('Voer je wachtwoord in', validators=[DataRequired()])
 
-    submit = SubmitField('Verzend')
+    submit = SubmitField('submit')
     
 class RegistratieForm(FlaskForm):
-    username = StringField()
+    name = StringField()
     email = StringField()
     password = StringField()
     
-    submit = SubmitField('Verzend')
+    submit = SubmitField('submit')
