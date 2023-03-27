@@ -16,3 +16,15 @@ class RegistratieForm(FlaskForm):
     password = StringField()
     
     submit = SubmitField('submit')
+    
+class FilmForm(FlaskForm):
+    Titel = StringField()
+    Jaar = StringField()
+    Genre = StringField()
+    Lengte = StringField()
+    Description = StringField()
+    Rating = StringField()
+    Imglink = StringField()
+    
+    submit = SubmitField('submit')
+    

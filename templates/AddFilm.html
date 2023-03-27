@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='Lijst.css')}}">
+    <title>MovieMania Film Toevoegen</title>
+</head>
+    <body>
+        <div class="container">
+            <form method="POST">
+                {{form.hidden_tag()}}
+                <label for="Titel"><b>Film Titel</b></label>
+                <input type="text" placeholder="Voer de titel van de film in" name="Titel" required>
+
+                <label for="Jaar"><b>Jaar Uitgave</b></label>
+                <input type="text" placeholder="Voer het jaar van de film in" name="Jaar" required>
+
+                <label for="Genre"><b>Genre</b></label>
+                <input type="text" placeholder="Voer de genre van de film in" name="Genre" required>
+
+                <label for="Lengte"><b>Lengte</b></label>
+                <input type="text" placeholder="Voer de Lengte van de film in" name="Lengte" required>
+
+                <label for="Description"><b>Film Beschrijving</b></label>
+                <input type="text" placeholder="Voer een beschrijving  van de film in" name="Description" required>
+
+                <label for="Rating"><b>Rating</b></label>
+                <input type="text" placeholder="Voer de Rating van de film in" name="Rating" required>
+
+                <label for="Imglink"><b>Image</b></label>
+                <input type="text" placeholder="Voer de Image van de film in" name="Imglink" required>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </body>
+</html>

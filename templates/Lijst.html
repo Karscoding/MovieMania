@@ -10,6 +10,7 @@
 <body>
     <div class="container">
         <h1>De Films</h1>
+        <a href="{{url_for('AddFilm')}}"><button class="addfilm">Voeg een Film toe</button></a>
         <ul class="FilmLijst">
             <li>
                 <img src="{{url_for('static', filename='TopGunM.jpg')}}" alt="" class="LijstPicture" width="190" height="250">
@@ -23,26 +24,7 @@
                 <p class="Rating">99% Audience Score</p>
             </li>
             <li>
-                <img src="{{url_for('static', filename='Cars2006.jpg')}}" alt="" class="LijstPicture" width="200" height="250">
-                <h2>Cars</h2>
-                <p class="ExtraInfo">All Ages 2006, Animation/Family, 1h 57m</p>
-                <p>
-                    Lightning McQueen is een ambitieuze nieuweling in de racewereld die onderweg is naar de finale van de Pistons Cup in Californië. 
-                    <br>
-                    Wanneer hij onverwachts een omweg moet ontdekt hij dat het leven niet om de finishlijn gaat maar om de reis.
-                <p class="Rating">80% Audience Score</p>
-            </li>
-            <li>
-                <img src="{{url_for('static', filename='Cars2006.jpg')}}" alt="" class="LijstPicture" width="200" height="250">
-                <h2>Cars</h2>
-                <p class="ExtraInfo">All Ages 2006, Animation/Family, 1h 57m</p>
-                <p>
-                    Lightning McQueen is een ambitieuze nieuweling in de racewereld die onderweg is naar de finale van de Pistons Cup in Californië. 
-                    Wanneer hij onverwachts een omweg moet ontdekt hij dat het leven niet om de finishlijn gaat maar om de reis.
-                <p class="Rating">80% Audience Score</p>
-            </li>
-            <li>
-                <img src="{{url_for('static', filename='TopGunM.jpg')}}" alt="" class="LijstPicture" width="200" height="250">
+                <img src="{{url_for('static', filename='TopGunM.jpg')}}" alt="" class="LijstPicture" width="190" height="250">
                 <h2>Top Gun Maverick</h2>
                 <p class="ExtraInfo">PG-13 2022, Action/Adventure, 2h 11m</p>
                 <p>

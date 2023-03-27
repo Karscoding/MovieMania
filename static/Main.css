@@ -56,5 +56,16 @@ p{
     color:white;
     text-align: left;
     position: absolute;
-    top:91%;
+    top:93%;
 }
+
+
+.addfilm {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }

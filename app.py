@@ -67,8 +67,27 @@ def registratie():
 #Info Path
 @app.route("/Info")
 def Info():
-    accounts = Accounts.query.all()
-    return render_template("Informatie.html", accounts=accounts)
+    return render_template("Informatie.html")
+
+@app.route("/AddFilm",methods=['GET', 'POST'])
+def AddFilm():
+    form = FilmForm()
+    if form.validate_on_submit():
+        titel = form.Titel.data
+        jaar = form.Jaar.data
+        genre = form.Genre.data
+        lengte = form.Lengte.data
+        desc = form.Description.data
+        rating = form.Rating.data
+        img = form.Imglink.data
+        
+        NewFilm = Films(titel,jaar,genre,lengte,desc,rating,img)
+        db.session.add(NewFilm)
+        db.session.commit()
+        
+        return redirect(url_for('Lijst'))
+    
+    return render_template("AddFilm.html", form=form)
 
 #Run
 if __name__=='__main__':
