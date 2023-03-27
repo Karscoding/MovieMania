@@ -1,38 +1,19 @@
 #Imports
-import os
 from flask import Flask, render_template, session, redirect, url_for, session
 from forms import *
 from flask_migrate import Migrate
-from flask_sqlalchemy import SQLAlchemy
+from models import *
 
 #App Configuration
 app = Flask(__name__)
-
-app.config['SECRET_KEY'] = 'MijnSecretKey'
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'accounts.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db = SQLAlchemy(app)
+app.config['SECRET_KEY'] = 'MijnSecretKey'
 
-
-class Accounts(db.Model):
-    
-    __tablename__ = 'Accounts'
-    id = db.Column(db.Integer,primary_key = True)
-    gebruikersnaam = db.Column(db.Text)
-    email = db.Column(db.Text, unique=True)
-    password = db.Column(db.Text)
-    
-    def __init__(self, name, email, password):
-        self.gebruikersnaam = name
-        self.email = email
-        self.password = password
-        db.create_all()
-        
-    def __repr__(self):
-        return f"Gebruikersnaam: {self.gebruikersnaam} Email: {self.email} Wachtwoord: {self.password}"
+db.init_app(app)
 
 #Default Path
 @app.route("/" ,methods=['GET', 'POST'])
