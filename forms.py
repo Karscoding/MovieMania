@@ -1,7 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import (StringField, BooleanField, DateTimeField,
                                   RadioField, SelectField,
-                                  TextAreaField, SubmitField)
+                                  TextAreaField, SubmitField,
+                                  IntegerField)
 from wtforms.validators import DataRequired
 
 class InlogForm(FlaskForm):
@@ -28,3 +29,7 @@ class FilmForm(FlaskForm):
     
     submit = SubmitField('submit')
     
+class DeleteForm(FlaskForm):
+    id = IntegerField()
+    
+    submit = SubmitField('submit')

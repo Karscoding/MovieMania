@@ -11,6 +11,7 @@
     <div class="container">
         <h1>De Films</h1>
         <a href="{{url_for('AddFilm')}}"><button class="addfilm">Voeg een Film toe</button></a>
+        <a href="{{url_for('DelFilm')}}"><button class="addfilm">Verwijder een Film</button></a>
         <ul class="FilmLijst">
             {% for film in films %}
             <li>

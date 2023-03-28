@@ -91,6 +91,19 @@ def AddFilm():
     
     return render_template("AddFilm.html", form=form)
 
+@app.route("/DelFilm",methods=['GET', 'POST'])
+def DelFilm():
+    form = DeleteForm()
+    
+    if form.validate_on_submit():
+        id = form.id.data
+        cursor = Films.query.get(id)
+        db.session.delete(cursor)
+        db.session.commit()
+        
+        return redirect(url_for('Lijst'))
+    return render_template("DelFilm.html", form=form)
+
 #Run
 if __name__=='__main__':
     app.run(debug=True)
