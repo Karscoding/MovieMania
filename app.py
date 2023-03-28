@@ -8,7 +8,7 @@ from models import *
 app = Flask(__name__)
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'accounts.sqlite')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'database.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 app.config['SECRET_KEY'] = 'MijnSecretKey'
@@ -24,7 +24,6 @@ def Main():
 @app.route("/Lijst")
 def Lijst():
     films = Films.query.all()
-    
     return render_template("Lijst.html", films=films)
 
 #Login Path
@@ -58,7 +57,7 @@ def registratie():
         if user:
             return redirect(url_for('registratie'))
         
-        NewAccount = Accounts(name,email,password)
+        NewAccount = Accounts(name,email,password,"User")
         db.session.add(NewAccount)
         db.session.commit()
         

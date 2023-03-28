@@ -10,11 +10,14 @@ class Accounts(db.Model):
     gebruikersnaam = db.Column(db.Text)
     email = db.Column(db.Text, unique=True)
     password = db.Column(db.Text)
+    role = db.Column(db.Text)
     
-    def __init__(self, name, email, password):
+    def __init__(self, name, email, password, role):
         self.gebruikersnaam = name
         self.email = email
         self.password = password
+        self.role = role
+        db.create_all()
         
     def __repr__(self):
         return f"Gebruikersnaam: {self.gebruikersnaam} Email: {self.email} Wachtwoord: {self.password}"
@@ -39,6 +42,7 @@ class Films(db.Model):
         self.description = description
         self.rating = rating
         self.image = image
+        db.create_all()
         
     def __repr__(self):
         return f"FilmTitel: {self.titel} Jaar: {self.jaar} Genre: {self.genre} Lengte: {self.lengte} Description: {self.description} Rating: {self.rating}"
