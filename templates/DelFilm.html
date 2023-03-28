@@ -14,6 +14,11 @@
             <label for="id"><b>Film ID</b></label>
             <input type="text" placeholder="Voer het id van de film in" name="id" required>
         </form>
+        <ul>
+            {% for film in films %}
+            <li>{{film.id}}</li>
+            {% endfor %}
+        </ul>
     </div>
 </body>
 </html>
