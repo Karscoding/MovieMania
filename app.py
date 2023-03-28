@@ -23,7 +23,9 @@ def Main():
 #Lijst Path
 @app.route("/Lijst")
 def Lijst():
-    return render_template("Lijst.html")
+    films = Films.query.all()
+    
+    return render_template("Lijst.html", films=films)
 
 #Login Path
 @app.route("/Login" ,methods=['GET', 'POST'])
