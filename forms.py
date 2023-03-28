@@ -1,7 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import (StringField, BooleanField, DateTimeField,
                                   RadioField, SelectField,
-                                  TextAreaField, SubmitField)
+                                  TextAreaField, SubmitField,
+                                  IntegerField)
 from wtforms.validators import DataRequired
 
 class InlogForm(FlaskForm):
@@ -14,5 +15,21 @@ class RegistratieForm(FlaskForm):
     name = StringField()
     email = StringField()
     password = StringField()
+    
+    submit = SubmitField('submit')
+    
+class FilmForm(FlaskForm):
+    Titel = StringField()
+    Jaar = StringField()
+    Genre = StringField()
+    Lengte = StringField()
+    Description = StringField()
+    Rating = StringField()
+    Imglink = StringField()
+    
+    submit = SubmitField('submit')
+    
+class DeleteForm(FlaskForm):
+    id = IntegerField()
     
     submit = SubmitField('submit')
