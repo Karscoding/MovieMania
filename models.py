@@ -17,11 +17,7 @@ class Accounts(db.Model):
         self.email = email
         self.password = password
         self.role = role
-        db.create_all()
         
-    def __repr__(self):
-        return f"Gebruikersnaam: {self.gebruikersnaam} Email: {self.email} Wachtwoord: {self.password}"
-    
 class Films(db.Model):
     
     __tablename__ = 'Films'
@@ -42,10 +38,3 @@ class Films(db.Model):
         self.description = description
         self.rating = rating
         self.image = image
-        db.create_all()
-        
-    def __repr__(self):
-        return f"FilmTitel: {self.titel} Jaar: {self.jaar} Genre: {self.genre} Lengte: {self.lengte} Description: {self.description} Rating: {self.rating}"
-    
-if __name__ == '__main__':
-        db.create_all()

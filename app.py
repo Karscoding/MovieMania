@@ -23,7 +23,7 @@ def Main():
 #Lijst Path
 @app.route("/Lijst")
 def Lijst():
-    films = Films.query.all()
+    films = Films.query.order_by('titel')
     return render_template("Lijst.html", films=films)
 
 #Login Path
