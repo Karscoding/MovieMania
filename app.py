@@ -3,6 +3,7 @@ from flask import Flask, render_template, session, redirect, url_for, session
 from forms import *
 from flask_migrate import Migrate
 from models import *
+from flask_login import LoginManager
 
 #App Configuration
 app = Flask(__name__)
@@ -13,7 +14,11 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 app.config['SECRET_KEY'] = 'MijnSecretKey'
 
-db.init_app(app)
+db = SQLAlchemy(app)
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = "Login"
 
 #Default Path
 @app.route("/" ,methods=['GET', 'POST'])
