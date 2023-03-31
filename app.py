@@ -1,9 +1,9 @@
 #Imports
-from flask import Flask, render_template, session, redirect, url_for, session
+from flask import Flask, render_template, redirect, url_for, session, request, flash
 from forms import *
 from flask_migrate import Migrate
 from models import *
-from flask_login import LoginManager
+from flask_login import login_user, login_required, logout_user, LoginManager
 
 #App Configuration
 app = Flask(__name__)
@@ -27,6 +27,7 @@ def Main():
 
 #Lijst Path
 @app.route("/Lijst")
+@login_required
 def Lijst():
     films = Films.query.order_by('titel')
     return render_template("Lijst.html", films=films)
@@ -36,37 +37,32 @@ def Lijst():
 def Login():
     form = InlogForm()
     if form.validate_on_submit():
-        email = form.email.data
-        password = form.password.data
+            user = User.query.filter_by(email=form.email.data).first()
+    if user.check_password(form.password.data) and user is not None:
+        login_user(user)
+        flash('Succesvol ingelogd.')
+    next = request.args.get('next')
+    if next == None or not next[0]=='/':
+        next = url_for('Info')
+        return redirect(next)
         
-        user = Accounts.query.filter_by(email=email, password=password).first()
-        
-        if user:
-            return redirect(url_for('Lijst'))
-
-        return redirect(url_for("Info"))
-
     return render_template("Login.html", form=form)
 
 #Registratie Path
 @app.route("/Registratie",methods=['GET', 'POST'])
 def registratie():
-    form = RegistratieForm()
+    form = RegistrationForm()
     if form.validate_on_submit():
-        name = form.name.data
-        email = form.email.data
-        password = form.password.data
-        
-        user = Accounts.query.filter_by(email=email).first()
-        
-        if user:
-            return redirect(url_for('registratie'))
-        
-        NewAccount = Accounts(name,email,password,"User")
-        db.session.add(NewAccount)
+        user = User(email=form.email.data,
+                    username=form.username.data,
+                    password=form.password.data)
+
+        db.session.add(user)
         db.session.commit()
+        flash('Dank voor de registratie. Er kan nu ingelogd worden! ')
         
-        return redirect(url_for('Info'))
+        
+        return redirect(url_for('Login'))
     
     return render_template("Registratie.html", form=form)
 
@@ -76,6 +72,7 @@ def Info():
     return render_template("Informatie.html")
 
 @app.route("/AddFilm",methods=['GET', 'POST'])
+@login_required
 def AddFilm():
     form = FilmForm()
     if form.validate_on_submit():
@@ -96,6 +93,7 @@ def AddFilm():
     return render_template("AddFilm.html", form=form)
 
 @app.route("/DelFilm",methods=['GET', 'POST'])
+@login_required
 def DelFilm():
     form = DeleteForm()
     films = Films.query.all()

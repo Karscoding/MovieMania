@@ -18,13 +18,20 @@ class User(db.Model, UserMixin):
         self.email = email
         self.username = username
         self.password_hash = generate_password_hash(password)
+    
+    def is_anonymous(self):
+        return False
+
+    def is_authenticated(self):
+        return True
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
     
-    @login_manager.user_loader()
-    def load_user(user_id):
-        return User.query.get(user_id)
+    
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
 
 
     
