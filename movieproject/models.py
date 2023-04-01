@@ -1,23 +1,24 @@
-import os
-from flask_sqlalchemy import SQLAlchemy
-from app import db
-from flask_login import login_manager
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin
+from movieproject import db, login_manager
 
-db = SQLAlchemy()
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
+
+
+
 class User(db.Model, UserMixin):
-
-    __tablename__ = 'users'
+    __tablename__ = 'accounts'
     id = db.Column(db.Integer, primary_key = True)
     email = db.Column(db.String(64), unique=True, index=True)
-    username = db.Column(db.String(64), unique=True, index=True)
-    password_hash = db.Column(db.String(128))
+    gebruikersnaam = db.Column(db.String(64), unique=True, index=True)
+    password = db.Column(db.String(128))
 
-    def __init__(self, email, username, password):
+    def __init__(self, email, gebruikersnaam, password):
         self.email = email
-        self.username = username
-        self.password_hash = generate_password_hash(password)
+        self.gebruikersnaam = gebruikersnaam
+        self.password = generate_password_hash(password)
     
     def is_anonymous(self):
         return False
@@ -27,14 +28,8 @@ class User(db.Model, UserMixin):
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
-    
-    
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(user_id)
 
 
-    
         
 class Films(db.Model):
     

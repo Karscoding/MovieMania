@@ -5,7 +5,7 @@ from wtforms import (StringField, BooleanField, DateTimeField,
                                   IntegerField, PasswordField)
 from wtforms.validators import DataRequired, Email, EqualTo
 from wtforms import ValidationError
-from models import User
+from movieproject.models import User
 
 class InlogForm(FlaskForm):
     email = StringField('Voer je email in', validators=[DataRequired(), Email()])
@@ -24,7 +24,7 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('Dit e-mailadres staat al geregistreerd!')
         
     def validate_username(self, field):
-        if User.query.filter_by(username=field.data).first():
+        if User.query.filter_by(gebruikersnaam=field.data).first():
             raise ValidationError('Deze gebruikersnaam is al vergeven, probeer een ander naam!')
     
 class FilmForm(FlaskForm):

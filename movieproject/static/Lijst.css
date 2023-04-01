@@ -1,0 +1,66 @@
+body{
+    background-color:black;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-repeat:repeat-y;
+    background-image: url('disney-movies.jpg');
+    background-size: 100%;
+}
+
+.container{
+    text-align: center;
+    background-color: #f1f1f1;
+    border-radius: 25px;
+    padding: 20px;
+    margin-top:10%;
+    width: 70%;
+    position:absolute;
+    left:14%;
+    height:auto;
+}
+
+.FilmLijst{
+    list-style-type:none;
+    width: 90%;
+    list-style-position: outside;
+}
+
+li{
+    text-align: left;
+    padding:2%;
+    float:right;
+    position: relative;
+    border-style:dashed;
+    border-color: rgba(0, 0, 0, 0.11);
+    width: 90%;
+}
+
+.ExtraInfo{
+    font-size:15px;
+    color:darkgray;
+}
+
+.LijstPicture{
+    float:left;
+    margin-right:2%;
+}
+
+.Rating{
+    font-size: 25px;
+    float:right;
+    margin:0px;
+}
+
+.addfilm {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input{
+    width:50%;
+    height:5%;
+}

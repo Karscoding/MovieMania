@@ -1,0 +1,23 @@
+body{
+    background-color:black;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-repeat:repeat-y;
+    background-image: url('disney-movies.jpg');
+    background-size: 100%;
+}
+
+.container{
+    text-align: center;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top:10%;
+    width:50%;
+    position:absolute;
+    left:24%;
+    height:160%;
+}
+
+ul{
+    list-style-type: none;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Lijst.css') }}">
+    <title>MovieMania Films</title>
+</head>
+<body>
+    <div class="container">
+        <h1>De Films</h1>
+        <a href="{{url_for('AddFilm')}}"><button class="addfilm">Voeg een Film toe</button></a>
+        <a href="{{url_for('DelFilm')}}"><button class="addfilm">Verwijder een Film</button></a>
+        <ul class="FilmLijst">
+            {% for film in films %}
+            <li>
+                <img src="{{film.image}}" alt="" class="LijstPicture" width="190" height="250">
+                <h2>{{film.titel}}</h2>
+                <p class="ExtraInfo">{{film.jaar}}, {{film.genre}}, {{film.lengte}}</p>
+                <p>
+                    {{film.description}}
+                </p>
+                <p class="Rating">{{film.rating}}% Audience Score</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

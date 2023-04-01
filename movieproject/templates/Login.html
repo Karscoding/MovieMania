@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <title>MovieMania Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Login.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welkom Terug</h1>
+        <form method="POST">
+            {{form.hidden_tag()}}
+          <label for="Email"><b>E-mail</b></label>
+          <input type="text" placeholder="Voer je email in" name="email" required>
+          <label for="password"><b>Wachtwoord</b></label>
+          <input type="password" placeholder="Voer je wachtwoord in" name="password" required>
+          <button type="submit">Login</button>
+          <h2>Nog geen account?</h2> <a href="{{ url_for('registratie')}}"> <button type="button" id="redirect">Account Aanmaken </button></a>
+        </form>
+    </div>
+    <p class="Credits">Kars Hekman <br>Lucas Bruins <br>© 2023</p>
+</body>
+</html>

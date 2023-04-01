@@ -1,24 +1,9 @@
-#Imports
-from flask import Flask, render_template, redirect, url_for, session, request, flash
-from forms import *
-from flask_migrate import Migrate
-from models import *
-from flask_login import login_user, login_required, logout_user, LoginManager
+from movieproject import app, db
+from flask import  render_template, redirect, url_for, session, request, flash
+from flask_login import login_user, login_required
+from movieproject.models import Films, User
+from movieproject.forms import InlogForm, RegistrationForm, FilmForm, DeleteForm
 
-#App Configuration
-app = Flask(__name__)
-
-basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'database.sqlite')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-app.config['SECRET_KEY'] = 'MijnSecretKey'
-
-db = SQLAlchemy(app)
-
-login_manager = LoginManager()
-login_manager.init_app(app)
-login_manager.login_view = "Login"
 
 #Default Path
 @app.route("/" ,methods=['GET', 'POST'])
@@ -37,14 +22,14 @@ def Lijst():
 def Login():
     form = InlogForm()
     if form.validate_on_submit():
-            user = User.query.filter_by(email=form.email.data).first()
-    if user.check_password(form.password.data) and user is not None:
-        login_user(user)
-        flash('Succesvol ingelogd.')
-    next = request.args.get('next')
-    if next == None or not next[0]=='/':
-        next = url_for('Info')
-        return redirect(next)
+        user = User.query.filter_by(email=form.email.data).first()
+        if user is not None and user.check_password(form.password.data) :
+            login_user(user)
+            flash('Succesvol ingelogd.')
+            next = request.args.get('next')
+            if next == None or not next[0]=='/':
+                next = url_for('Info')
+                return redirect(next)
         
     return render_template("Login.html", form=form)
 
@@ -60,9 +45,9 @@ def registratie():
         db.session.add(user)
         db.session.commit()
         flash('Dank voor de registratie. Er kan nu ingelogd worden! ')
-        
-        
         return redirect(url_for('Login'))
+    else:
+        flash("registratie mislukt")
     
     return render_template("Registratie.html", form=form)
 
