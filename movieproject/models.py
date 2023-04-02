@@ -13,12 +13,12 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key = True)
     email = db.Column(db.String(64), unique=True, index=True)
     gebruikersnaam = db.Column(db.String(64), unique=True, index=True)
-    password = db.Column(db.String(128))
+    password_hash = db.Column(db.String(128))
 
     def __init__(self, email, gebruikersnaam, password):
         self.email = email
         self.gebruikersnaam = gebruikersnaam
-        self.password = generate_password_hash(password)
+        self.password_hash = generate_password_hash(password)
     
     def is_anonymous(self):
         return False

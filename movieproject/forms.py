@@ -13,7 +13,7 @@ class InlogForm(FlaskForm):
     submit = SubmitField('Login')
 
 class RegistrationForm(FlaskForm):
-    username = StringField('Voer uw gebruikersnaam in', validators=[DataRequired()])
+    name = StringField('Voer uw gebruikersnaam in', validators=[DataRequired()])
     email = StringField('voer uw email in', validators=[DataRequired(),Email()])
     password = PasswordField('Wachtwoord', validators=[DataRequired(), EqualTo('pass_confirm',    message='Passwords Must Match!')])
     pass_confirm = PasswordField('Bevestig uw wachtwoord', validators=[DataRequired()])
