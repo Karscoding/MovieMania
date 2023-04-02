@@ -37,19 +37,17 @@ def Login():
 @app.route("/Registratie",methods=['GET', 'POST'])
 def registratie():
     form = RegistrationForm()
-    if form.validate_on_submit():
-        user = User(form.email.data,
-                    form.name.data,
-                    form.password.data)
-
-        db.session.add(user)
-        db.session.commit()
-        flash('Dank voor de registratie. Er kan nu ingelogd worden! ')
-        return redirect(url_for('Login'))
-    else:
-        flash("registratie mislukt")
-    
-    return render_template("Registratie.html", form=form)
+    if request.method == 'POST':
+        if form.submit():
+            print('IT WORKS OMG')
+            user = User(form.email.data,
+                        form.name.data,
+                        form.password.data)
+            db.session.add(user)
+            db.session.commit()
+            return redirect(url_for('Login'))
+        
+    return render_template('Registratie.html', form=form)
 
 #Info Path
 @app.route("/Info")
