@@ -7,3 +7,13 @@ with app.app_context():
         db.drop_all()
     if userInput == 'create':
         db.create_all()
+    if userInput == 'accountdel':
+        users = User.query.all()
+        for user in users:
+            print(user.id, user.email, user.gebruikersnaam)
+        userInput = input('Welk ID wil je verwijderen? : ')
+        if userInput != '':
+            cursor = User.query.get(int(userInput))
+            db.session.delete(cursor)
+            db.session.commit()
+        
