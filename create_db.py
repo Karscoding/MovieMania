@@ -2,7 +2,7 @@ from movieproject import db, app
 from movieproject.models import User
 
 with app.app_context():
-    userInput = input('Drop of Delete?: ')
+    userInput = input('Drop of Create?: ')
     if userInput == 'drop':
         db.drop_all()
     if userInput == 'create':
@@ -16,4 +16,6 @@ with app.app_context():
             cursor = User.query.get(int(userInput))
             db.session.delete(cursor)
             db.session.commit()
+    else:
+        print('\nNothing happened...')
         
