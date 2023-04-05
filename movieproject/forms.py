@@ -9,7 +9,7 @@ from movieproject.models import User
 
 class InlogForm(FlaskForm):
     email = StringField('Voer je email in', validators=[DataRequired(), Email()])
-    password = PasswordField('Voer je wachtwoordi n', validators=[DataRequired()])
+    password = PasswordField('Voer je wachtwoord in', validators=[DataRequired()])
     submit = SubmitField('Login')
 
 class RegistrationForm(FlaskForm):

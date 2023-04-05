@@ -23,13 +23,20 @@ def Login():
     form = InlogForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
+    
         if user is not None and user.check_password(form.password.data) :
             login_user(user)
             flash('Succesvol ingelogd.')
             next = request.args.get('next')
             if next == None or not next[0]=='/':
-                next = url_for('Info')
+                next = url_for('Main')
                 return redirect(next)
+        
+    else:
+        print("faal if 1")
+
+    
+
         
     return render_template("Login.html", form=form)
 
@@ -45,6 +52,7 @@ def registratie():
                         form.password.data)
             db.session.add(user)
             db.session.commit()
+            flash("account aangemaakt")
             return redirect(url_for('Login'))
         
     return render_template('Registratie.html', form=form)
