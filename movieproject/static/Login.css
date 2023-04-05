@@ -74,3 +74,8 @@ h2{
 #redirect:hover {
   background-color: #6945a0;
 }
+
+.error {
+  color:rgb(212, 48, 48);
+  font-weight: bold;
+}

@@ -21,18 +21,21 @@ def Lijst():
 @app.route("/Login" ,methods=['GET', 'POST'])
 def Login():
     form = InlogForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-    
-        if user is not None and user.check_password(form.password.data) :
-            login_user(user)            
-            flash('Succesvol ingelogd.')
-            next = request.args.get('next')
-            if next == None or not next[0]=='/':
-                next = url_for('Main')
-                return redirect(next)
+    error = False
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            user = User.query.filter_by(email=form.email.data).first()
+        
+            if user is not None and user.check_password(form.password.data) :
+                login_user(user)            
+                flash('Succesvol ingelogd.')
+                next = request.args.get('next')
+                if next == None or not next[0]=='/':
+                    next = url_for('Main')
+                    return redirect(next)
+        error = True
                         
-    return render_template("Login.html", form=form)
+    return render_template("Login.html", form=form, error=error)
 
 #Registratie Path
 @app.route("/Registratie",methods=['GET', 'POST'])
