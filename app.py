@@ -25,19 +25,13 @@ def Login():
         user = User.query.filter_by(email=form.email.data).first()
     
         if user is not None and user.check_password(form.password.data) :
-            login_user(user)
+            login_user(user)            
             flash('Succesvol ingelogd.')
             next = request.args.get('next')
             if next == None or not next[0]=='/':
                 next = url_for('Main')
                 return redirect(next)
-        
-    else:
-        print("faal if 1")
-
-    
-
-        
+                        
     return render_template("Login.html", form=form)
 
 #Registratie Path
