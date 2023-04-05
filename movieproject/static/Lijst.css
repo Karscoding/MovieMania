@@ -64,3 +64,11 @@ input{
     width:50%;
     height:5%;
 }
+
+.Terug {
+  color:white;
+  position:absolute;
+  font-size:24px;
+  padding-left: 24px;
+  text-decoration: none;
+}

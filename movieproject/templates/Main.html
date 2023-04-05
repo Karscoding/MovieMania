@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='Main.css') }}">
-    <title>MovieMania</title>
-</head>
-<body>  
-    <h1>Movie Mania</h1>
-    <p>De Ultieme Film Database</p>
-    <a href="{{url_for('Lijst')}}" class="LijstKnop">De Films</a>
-    <a href="{{url_for('Login')}}" class="InlogKnop">Inloggen</a>
-    <a href="{{url_for('Info')}}" class="InfoKnop">Informatie</a>
-    <p class="Credits">Kars Hekman <br>Lucas Bruins <br>© 2023</p>
-</body>
-
-
-
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='Main.css') }}">
+        <title>MovieMania</title>
+    </head>
+    <body>  
+        <h1>Movie Mania</h1>
+        <p>De Ultieme Film Database</p>
+        <a href="{{url_for('Lijst')}}" class="LijstKnop">De Films</a>
+        <a href="{{url_for('Login')}}" class="InlogKnop">Inloggen</a>
+        <a href="{{url_for('Info')}}" class="InfoKnop">Informatie</a>
+        <p class="Credits">Kars Hekman <br>Lucas Bruins <br>&#169; 2023</p>
+    </body>
 </html>
