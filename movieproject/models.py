@@ -7,7 +7,6 @@ def load_user(user_id):
     return User.query.get(user_id)
 
 
-
 class User(db.Model, UserMixin):
     __tablename__ = 'accounts'
     id = db.Column(db.Integer, primary_key = True)
@@ -30,8 +29,6 @@ class User(db.Model, UserMixin):
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
-
-
         
 class Films(db.Model):
     

@@ -16,15 +16,15 @@
         <h1>Welkom Terug</h1>
         <form method="POST">
             {{form.hidden_tag()}}
-          <label for="Email"><b>E-mail</b></label>
-          <input type="text" placeholder="Voer je email in" name="email" required>
-          <label for="password"><b>Wachtwoord</b></label>
-          <input type="password" placeholder="Voer je wachtwoord in" name="password" required>
+            <label for="Email"><b>E-mail</b></label>
+            <input type="text" placeholder="Voer je email in" name="email" required>
+            <label for="password"><b>Wachtwoord</b></label>
+            <input type="password" placeholder="Voer je wachtwoord in" name="password" required>
             {% if error %}
                 <p class="error">De ingevulde informatie klopt niet</p>
             {% endif %}
-          <button type="submit" >Login</button>
-          <h2>Nog geen account?</h2> <a href="{{ url_for('registratie')}}"> <button type="button" id="redirect">Account Aanmaken </button></a>
+            <button type="submit" >Login</button>
+            <h2>Nog geen account?</h2> <a href="{{ url_for('registratie')}}"> <button type="button" id="redirect">Account Aanmaken </button></a>
         </form>
     </div>
 </body>
