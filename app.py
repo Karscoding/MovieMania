@@ -1,7 +1,7 @@
 from movieproject import app, db
 from flask import  render_template, redirect, url_for, session, request, flash
-from flask_login import login_user, login_required
-from movieproject.models import Films, User
+from flask_login import login_user, login_required, current_user
+from movieproject.models import *
 from movieproject.forms import InlogForm, RegistrationForm, FilmForm, DeleteForm
 
 
@@ -14,8 +14,10 @@ def Main():
 @app.route("/Lijst")
 @login_required
 def Lijst():
+    user = User.query.filter_by(id=current_user.id).first()
+    userPerms = user.user_role
     films = Films.query.order_by('titel')
-    return render_template("Lijst.html", films=films)
+    return render_template("Lijst.html", films=films, userPerms=userPerms)
 
 #Login Path
 @app.route("/Login" ,methods=['GET', 'POST'])
