@@ -1,5 +1,0 @@
-
-*.pyc
-movieproject/database.sqlite
-movieproject/__pycache__/__init__.cpython-310.pyc
-movieproject/__pycache__/forms.cpython-310.pyc
