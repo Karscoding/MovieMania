@@ -46,7 +46,8 @@ def registratie():
             print('IT WORKS OMG')
             user = User(form.email.data,
                         form.name.data,
-                        form.password.data)
+                        form.password.data,
+                        'User')
             db.session.add(user)
             db.session.commit()
             flash("account aangemaakt")

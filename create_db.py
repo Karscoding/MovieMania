@@ -5,9 +5,9 @@ with app.app_context():
     userInput = input('Drop of Create?: ')
     if userInput == 'drop':
         db.drop_all()
-    if userInput == 'create':
+    elif userInput == 'create':
         db.create_all()
-    if userInput == 'accountdel':
+    elif userInput == 'accountdel':
         users = User.query.all()
         for user in users:
             print(user.id, user.email, user.gebruikersnaam)
@@ -15,6 +15,19 @@ with app.app_context():
         if userInput != '':
             cursor = User.query.get(int(userInput))
             db.session.delete(cursor)
+            db.session.commit()
+    elif userInput == 'addadmin':
+        users = User.query.all()
+        for user in users:
+            print(user.id, user.email, user.gebruikersnaam, user.user_role)
+        userInput = input('Welk ID wil je permissions beheren')
+        if userInput != '':
+            cursor = User.query.get(int(userInput))
+            userInput = input('1 voor Admin, 2 voor User')
+            if userInput == '1':
+                cursor.user_role = 'Admin'
+            else:
+                cursor.user_role = 'User'
             db.session.commit()
     else:
         print('\nNothing happened...')
