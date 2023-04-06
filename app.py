@@ -45,7 +45,6 @@ def registratie():
     form = RegistrationForm()
     if request.method == 'POST':
         if form.submit():
-            print('IT WORKS OMG')
             user = User(form.email.data,
                         form.name.data,
                         form.password.data,
