@@ -1,6 +1,6 @@
 from movieproject import app, db
-from flask import  render_template, redirect, url_for, session, request, flash
-from flask_login import login_user, login_required, current_user
+from flask import render_template, redirect, url_for, session, request, flash
+from flask_login import login_user,logout_user, login_required, current_user
 from movieproject.models import *
 from movieproject.forms import InlogForm, RegistrationForm, FilmForm, DeleteForm
 
@@ -30,7 +30,6 @@ def Login():
         
             if user is not None and user.check_password(form.password.data) :
                 login_user(user)            
-                flash('Succesvol ingelogd.')
                 next = request.args.get('next')
                 if next == None or not next[0]=='/':
                     next = url_for('Main')
@@ -51,10 +50,15 @@ def registratie():
                         'User')
             db.session.add(user)
             db.session.commit()
-            flash("account aangemaakt")
             return redirect(url_for('Login'))
         
     return render_template('Registratie.html', form=form)
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('Main'))
 
 #Info Path
 @app.route("/Info")
