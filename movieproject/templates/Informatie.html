@@ -10,9 +10,55 @@
 <body>
     <div class="container">
         <h1>Informatie over Movie Mania</h1>
+        <h4>Introductie</h4>
         <p>
-            
+            Movie Mania is een website gemaakt door twee studenten, Lucas Bruins en Kars Hekman. <br>
+            De website is gemaakt als eindopdracht voor het vak Webtechnologie bij de opleiding HBO-ICT op de Hanzehogeschool in Groningen. <br>
         </p>
+        <h4>The Purpose</h4>
+        <p>
+            Het doel van Movie Mania is om informatie te beheren over films. <br>
+            Met behulp van onze lijst kun je informatie vinden over films op een gemakkelijke manier. <br>
+            Als laatst is het grootste nut van deze website natuurlijk wat wij hebben geleerd. <br>
+            We hebben nieuwe dingen geleerd in Python, niet alleen de modules specifiek maar ook algemene Python functionaliteit. <br>
+            Ook hebben we meer kunnen oefenen met HTML / CSS en zijn we over het algemeen is onze ICT kennis enorm vergroot. <br>
+        </p>
+        <h4>De werking</h4>
+        <p>
+            De webpagina's zijn gemaakt met simpele HTML en CSS. <br>
+            Wij hadden de optie om Bootstrap te gebruiken, dit zorgt ervoor dat je bijna geen CSS hoeft te schrijven maar wij vonden dat juist wel leuk. <br>
+            Hierdoor hebben wij gekozen om geen Bootstrap te gebruiken en juist de uitdaging van CSS aan te gaan. <br>
+            De werking van de website is gedaan met Flask in Python. 
+            Deze module zorgt voor veel functionaliteit. <br>
+            De films in de lijst staan in een database, deze database is gemaakt met SQLAlchemy. <br>
+            Ook de accounts staan in een database maar wel met een beschermd wachtwoord. <br>
+        </p>
+        <h4>User Guide</h4>
+        <p>
+            Als gebruiker vraag je je misschien af hoe je de website gebruikt. <br>
+            Als eerst moet je een account hebben en ingelogd zijn om bij de films te kunnen komen. <br>
+            Registreren kun je doen via de Inlog-pagina. <br>
+            Log hierna in en je kunt vervolgens bij de Film-lijst. <br>
+            Wanneer je als gebruiker Admin bent kun je de Films aanpassen. <br>
+        </p>
+        <h4>Film Toevoegen</h4>
+        <p>
+            Om een film toe te voegen moet je eerst ingelogd zijn als admin (lees volgend stuk). <br>
+            Bovenaan de film lijst staat een knop on films toe te voegen. <br>
+            Hiervan zijn de meeste dingen vanzelf sprekend behalve image. <br>
+            Om hier een goed resultaat uit te krijgen moet je een film poster kiezen. <br>
+            Hierbij moet je de image address kopieren en die invullen in het formulier van een film toevoegen. <br>
+        </p>
+        <h4>Admin Test</h4>
+        <p>
+            We staan de tester van deze website toe om de admin permissions uit te proberen. <br>
+            Hiervoor hebben wij een admin account die jij kan gebruiken. <br>
+            Log in met de gegevens hieronder en je zal inloggen als admin. <br>
+            Veel plezier ;]. <br> <br>
+            Email : admintest@admin.nl <br>
+            Wachtwoord : admin 
+        </p>
+        <br>
         <a href="{{url_for('Main')}}">Terug</a>
     </div>
 </body>
