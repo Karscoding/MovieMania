@@ -14,7 +14,7 @@
             <label for="id"><b>Film ID</b></label>
             <input type="text" placeholder="Voer het id van de film in" name="id" required>
         </form>
-        <ul>
+        <ul class="FilmLijst">
             {% for film in films %}
             <li>{{film.id}}, {{film.titel}}, {{film.jaar}}</li>
             {% endfor %}
