@@ -87,3 +87,9 @@ input{
   
   
   }
+
+.UserInfo{
+    position: absolute;
+    float:left;
+    margin-left:30px;
+}

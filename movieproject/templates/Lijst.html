@@ -11,7 +11,10 @@
     <a href="{{url_for('Main')}}" class="Terug"><p>&#171; Terug</p></a>
     <div class="container">
         {% if current_user.is_authenticated %}
-        <a href="{{url_for('logout')}}" class="Uitloggen">Uitloggen</a>
+        <div class="UserInfo">
+            <p><strong>U bent ingelogd als: {{userName}}</strong></p>
+            <a href="{{url_for('logout')}}" class="Uitloggen">Uitloggen</a>
+        </div>
         {% endif %} 
         <h1>De Films</h1>
         {% if userPerms == 'Admin' %}

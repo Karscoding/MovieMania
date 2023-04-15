@@ -16,14 +16,20 @@ def Main():
 def Lijst():
     user = User.query.filter_by(id=current_user.id).first()
     userPerms = user.user_role
+    userName = user.gebruikersnaam
     films = Films.query.order_by('titel')
-    return render_template("Lijst.html", films=films, userPerms=userPerms)
+    return render_template("Lijst.html", films=films, userPerms=userPerms, userName=userName)
 
 #Login Path
 @app.route("/Login" ,methods=['GET', 'POST'])
 def Login():
     form = InlogForm()
     error = False
+    try:
+        user = User.query.filter_by(id=current_user.id).first()
+        userName = user.gebruikersnaam
+    except:
+        userName = ''
     if request.method == 'POST':
         if form.validate_on_submit():
             user = User.query.filter_by(email=form.email.data).first()
@@ -36,7 +42,7 @@ def Login():
                     return redirect(next)
         error = True
                         
-    return render_template("Login.html", form=form, error=error)
+    return render_template("Login.html", form=form, error=error, userName=userName)
 
 #Registratie Path
 @app.route("/Registratie",methods=['GET', 'POST'])

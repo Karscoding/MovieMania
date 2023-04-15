@@ -3,10 +3,13 @@ from movieproject.models import User
 
 with app.app_context():
     userInput = input('Drop of Create?: ')
+    #Database Droppen
     if userInput == 'drop':
         db.drop_all()
+    #Database Maken
     elif userInput == 'create':
         db.create_all()
+    #Accounts deleten
     elif userInput == 'accountdel':
         users = User.query.all()
         for user in users:
@@ -16,6 +19,7 @@ with app.app_context():
             cursor = User.query.get(int(userInput))
             db.session.delete(cursor)
             db.session.commit()
+    #Admin toevoegen
     elif userInput == 'addadmin':
         users = User.query.all()
         for user in users:
